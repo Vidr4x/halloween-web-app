@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HALLOWEEN PROTOCOL // TRICK OR TREAT</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- 
+      ==================================================================
+      COME FUNZIONA IL QR CODE:
+      1. Carica questi 3 file (index.html, style.css, script.js) su GitHub Pages o Netlify.
+      2. Copia il link pubblico della tua pagina (es. https://tuonome.github.io/halloween).
+      3. Incolla il link su un sito come qrcode-monkey.com per scaricare il QR Code da stampare.
+      ==================================================================
+    -->
+
+    <main class="container">
+        <!-- SCHERMATA INIZIALE -->
+        <section id="choice-step" class="card active">
+            <h1 class="gothic-title">🎃 SCEGLI IL TUO DESTINO 🎃</h1>
+            <p class="subtitle">[SYSTEM_CHECK: TRICK_OR_TREAT_v3.0]</p>
+            <p class="instruction">Inquadra per fare la tua scelta. Non potrai tornare indietro.</p>
+
+            <div class="button-group">
+                <button class="btn btn-treat" onclick="makeChoice('treat')">🍬 DOLCETTO</button>
+                <button class="btn btn-trick" onclick="makeChoice('trick')">🃏 SCHERZETTO</button>
+            </div>
+        </section>
+
+        <!-- RISULTATO DOLCETTO -->
+        <section id="treat-step" class="card">
+            <h1 class="gothic-title text-treat">🍬 PATTO DI SALVEZZA 🍬</h1>
+            <p class="status-msg">Hai scelto il Dolcetto. Per salvarti devi compiere una di queste azioni:</p>
+            
+            <div class="options-box">
+                <div class="option-item">
+                    <span class="icon">🍬</span>
+                    <p>Offrirmi una caramella o un dolcetto reale sul momento.</p>
+                </div>
+                <div class="option-divider">OPPURE</div>
+                <div class="option-item">
+                    <span class="icon">📜</span>
+                    <p>Firmare la <strong>Pergamena Fisica</strong> lasciando: <em>Nome, Cognome, Instagram e il tuo Peggior Incubo/Fobia</em>.</p>
+                </div>
+            </div>
+
+            <!-- 
+              ==================================================================
+              INSERISCI QUI IL TUO LINK INSTAGRAM:
+              Sostituisci "IL_TUO_USERNAME" con il tuo username reale!
+              ==================================================================
+            -->
+            <a href="https://instagram.com/IL_TUO_USERNAME" target="_blank" class="btn btn-instagram">
+                📸 SEGUIMI SU INSTAGRAM PER RISCATTARTI
+            </a>
+        </section>
+
+        <!-- RISULTATO SCHERZETTO: RUOTA DELLA SFORTUNA -->
+        <section id="trick-step" class="card">
+            <h1 class="gothic-title text-trick">🎡 RUOTA DELLA SFORTUNA 🎡</h1>
+            <p class="status-msg">Gira la ruota per scoprire la tua penitenza...</p>
+
+            <div class="wheel-wrapper">
+                <div class="wheel-pointer">🔻</div>
+                <canvas id="wheel-canvas" width="320" height="320"></canvas>
+            </div>
+
+            <button id="spin-btn" class="btn btn-trick" onclick="spinWheel()">🔥 GIRA LA RUOTA 🔥</button>
+
+            <!-- Box Penitenza Estratta -->
+            <div id="penalty-result" class="options-box alert-border hidden">
+                <h2 id="penalty-title" class="text-trick">💀 LA TUA PENITENZA 💀</h2>
+                <p id="penalty-text" class="penalty-desc"></p>
+                
+                <a href="https://instagram.com/IL_TUO_USERNAME" target="_blank" class="btn btn-instagram">
+                    📸 SEGUIMI SU INSTAGRAM
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
