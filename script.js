@@ -1,5 +1,5 @@
 // ==========================================
-// SINTESI AUDIO (Senza file esterni)
+// SINTESI AUDIO
 // ==========================================
 const playBeep = (freq = 440, type = 'sine', duration = 0.08) => {
     try {
@@ -19,18 +19,15 @@ const playBeep = (freq = 440, type = 'sine', duration = 0.08) => {
 };
 
 // ==========================================
-// PENITENZE DELLA RUOTA DELLA SFORTUNA
+// PENITENZE DELLA RUOTA DELLA SFORTUNA (3 Spicchi)
 // ==========================================
 const penalties = [
-    { label: "📜 Pergamena", text: "Firma la Pergamena Fisica scrivendo: Nome, Cognome, IG e il tuo Peggior Incubo!" },
-    { label: "📸 Selfie", text: "Scattati un selfie divertente insieme a me dal vivo!" },
-    { label: "💬 Complimento", text: "Fammi il complimento più assurdo che ti viene in mente nei prossimi 10 secondi!" },
-    { label: "😱 Fobia", text: "Rivelami a voce la cosa di cui hai più paura al mondo." },
-    { label: "📲 IG Follow", text: "Clicca qui sotto e seguimi subito su Instagram per cancellare il debito!" },
-    { label: "👻 Risata", text: "Fai la tua migliore e più diabolica risata da cattivo ad alta voce!" }
+    { label: "📸 Lato Oscuro", text: "Catturo il tuo lato oscuro in una foto: facciamo un selfie buffo!" },
+    { label: "🏷️ Nuovo Nome", text: "Vieni da me e ti darò un nome che sei obbligato/a a tenere per tutta la serata!" },
+    { label: "👁️ Sfida Sguardo", text: "Fissa i miei occhi e prova a non ridere, se ci riesci sei libero/a altrimenti mi devi seguire su instagram e lasciare like e commento al post della serata!" }
 ];
 
-const colors = ["#ff6600", "#8a2be2", "#ff0055", "#00ffcc", "#9900cc", "#cc3300"];
+const colors = ["#ff0055", "#8a2be2", "#ff6600"];
 
 let currentAngle = 0;
 let isSpinning = false;
@@ -138,7 +135,7 @@ function showPenaltyResult(text) {
 }
 
 // ==========================================
-// GESTIONE SCELTE
+// GESTIONE SCELTE E TAP SEGRETO
 // ==========================================
 function makeChoice(choice) {
     localStorage.setItem('halloween_choice', choice);
@@ -162,44 +159,32 @@ function renderChoice(choice) {
     }
 }
 
-// ==========================================
-// COMANDO E TAP SEGRETO DI RESET PER I TEST
-// ==========================================
 function resetTest() {
     localStorage.removeItem('halloween_choice');
     localStorage.removeItem('halloween_penalty');
     location.reload();
 }
 
-// 1. Reset da tastiera (Tasto 'R')
 window.addEventListener('keydown', (e) => {
     if (e.key === 'r' || e.key === 'R') {
         resetTest();
     }
 });
 
-// 2. Reset da Touch/Mouse (5 click veloci sul titolo)
 let tapCount = 0;
 let tapTimer;
-
 document.addEventListener('click', (e) => {
     if (e.target.classList.contains('gothic-title')) {
         tapCount++;
         clearTimeout(tapTimer);
-
         if (tapCount >= 5) {
             resetTest();
         } else {
-            tapTimer = setTimeout(() => {
-                tapCount = 0;
-            }, 1200);
+            tapTimer = setTimeout(() => { tapCount = 0; }, 1200);
         }
     }
 });
 
-// ==========================================
-// INIZIALIZZAZIONE PAGINA
-// ==========================================
 window.addEventListener('DOMContentLoaded', () => {
     const savedChoice = localStorage.getItem('halloween_choice');
     if (savedChoice) {
