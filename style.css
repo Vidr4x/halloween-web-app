@@ -60,7 +60,7 @@ body {
 }
 
 .pumpkin-img {
-    width: 100px; 
+    width: 128px; 
     height: auto;
     margin-bottom: 15px;
     animation: pulse 2s infinite ease-in-out;
