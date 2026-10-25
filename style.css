@@ -27,7 +27,7 @@ body {
     border-radius: 16px;
     padding: 20px;
     text-align: center;
-    box-shadow: 0 0 25px rgba(138, 43, 226, 0.3);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.8);
     display: none;
     animation: fadeIn 0.4s ease-in-out;
 }
@@ -40,12 +40,12 @@ body {
     font-family: 'Creepster', cursive;
     font-size: 1.8rem;
     color: #ff6600;
-    text-shadow: 0 0 10px #ff6600;
+    text-shadow: 0 0 3px #ff6600;
     margin-bottom: 8px;
 }
 
-.text-treat { color: #00ffcc; text-shadow: 0 0 10px #00ffcc; }
-.text-trick { color: #ff0055; text-shadow: 0 0 10px #ff0055; }
+.text-treat { color: #00ffcc; text-shadow: 0 0 3px #00ffcc; }
+.text-trick { color: #ff0055; text-shadow: 0 0 3px #ff0055; }
 
 .subtitle {
     color: #888;
@@ -57,6 +57,13 @@ body {
     font-size: 0.9rem;
     margin-bottom: 20px;
     color: #bbb;
+}
+
+.pumpkin-img {
+    width: 100px; 
+    height: auto;
+    margin-bottom: 15px;
+    animation: pulse 2s infinite ease-in-out;
 }
 
 .button-group {
@@ -81,13 +88,13 @@ body {
 .btn-treat {
     background: #00ffcc;
     color: #000;
-    box-shadow: 0 0 12px rgba(0, 255, 204, 0.4);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.5);
 }
 
 .btn-trick {
     background: #ff0055;
     color: #fff;
-    box-shadow: 0 0 12px rgba(255, 0, 85, 0.4);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.5);
     width: 100%;
 }
 
@@ -96,7 +103,7 @@ body {
     color: #fff;
     width: 100%;
     margin-top: 15px;
-    box-shadow: 0 0 12px rgba(220, 39, 67, 0.4);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.5);
 }
 
 .options-box {
@@ -127,7 +134,6 @@ body {
     margin: 8px 0;
 }
 
-/* Styling Ruota della Sfortuna */
 .wheel-wrapper {
     position: relative;
     width: 300px;
@@ -150,7 +156,7 @@ body {
     width: 300px;
     height: 300px;
     border-radius: 50%;
-    box-shadow: 0 0 20px rgba(255, 0, 85, 0.5);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.7);
 }
 
 .penalty-desc {
@@ -162,6 +168,12 @@ body {
 }
 
 .hidden { display: none; }
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
 
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(8px); }
