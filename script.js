@@ -19,15 +19,15 @@ const playBeep = (freq = 440, type = 'sine', duration = 0.08) => {
 };
 
 // ==========================================
-// PENITENZE DELLA RUOTA DELLA SFORTUNA (3 Spicchi)
+// PENITENZE DELLA RUOTA DELLA SFORTUNA (2 Spicchi)
 // ==========================================
 const penalties = [
     { label: "📸 Lato Oscuro", text: "Catturo il tuo lato oscuro in una foto: facciamo un selfie buffo!" },
-    { label: "🏷️ Nuovo Nome", text: "Vieni da me e ti darò un nome che sei obbligato/a a tenere per tutta la serata!" },
-    { label: "👁️ Sfida Sguardo", text: "Fissa i miei occhi e prova a non ridere, se ci riesci sei libero/a altrimenti mi devi seguire su instagram e lasciare like e commento al post della serata!" }
+    { label: "🏷️ Nuovo Nome", text: "Vieni da me e ti darò un nome che sei obbligato/a a tenere per tutta la serata!" }
 ];
 
-const colors = ["#ff0055", "#8a2be2", "#ff6600"];
+// Colori alternati per i due spicchi
+const colors = ["#ff0055", "#8a2be2"];
 
 let currentAngle = 0;
 let isSpinning = false;
@@ -64,7 +64,8 @@ function drawWheel() {
         ctx.textAlign = "right";
         ctx.fillStyle = "#ffffff";
         ctx.font = "bold 15px 'Share Tech Mono', monospace";
-        ctx.fillText(penalties[i].label, radius - 15, 5);
+        // Per far leggere bene il testo nello spicchio più grande, lo avviciniamo un po' ai bordi
+        ctx.fillText(penalties[i].label, radius - 25, 5);
         ctx.restore();
     }
 
